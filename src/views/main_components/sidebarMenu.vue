@@ -24,10 +24,22 @@
                             <span class="layout-text">{{ itemTitle(child)}}</span>
                         </template>
                         <template v-for="menuItem in child.childrenItem" >
-                            <MenuItem :name="menuItem.path" :key="menuItem.path" v-if="menuItem.childrenItem!=''" >
+                            <MenuItem :name="menuItem.path" :key="menuItem.path" v-if="menuItem.childrenItemMenu==''" >
                                 <Icon :type="menuItem.icon" :size="iconSize" :key="menuItem.path"></Icon>
                                 <span class="layout-text" :key="menuItem.path">{{itemTitle(menuItem)}}</span>
                             </MenuItem>
+                            <Submenu v-if="menuItem.childrenItemMenu!=''" :name="child.name" :key="child.name">
+                                <template slot="title">
+                                    <Icon :type="menuItem.icon" :size="iconSize"></Icon>
+                                    <span class="layout-text">{{itemTitle(menuItem)}}</span>
+                                </template>
+                                <template v-for="menuChild in menuItem.childrenItemMenu">
+                                    <MenuItem :name="menuChild.path" :key="menuChild.path">
+                                        <Icon :type="menuChild.icon" :size="iconSize" :key="menuChild.path"></Icon>
+                                        <span class="layout-text" :key="menuChild.path">{{itemTitle(menuChild)}}</span>
+                                    </MenuItem>
+                                </template>
+                            </Submenu>
                         </template>
                     </Submenu>
                 </template>

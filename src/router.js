@@ -114,15 +114,25 @@ export const appRouter = [
                 path: 'image-editor',
                 icon: 'crop',
                 name: 'image-editor',
-                title: '图片预览编辑是',
-                component: resolve => { require(['./views/my_components/image-editor/image-editor.vue'], resolve); }
+                title: '子菜单1',
+                component: resolve => { require(['./views/my_components/image-editor/image-editor.vue'], resolve); },
+                childrenItemMenu:[
+                    {
+                        path: 'mutative-router',
+                        icon: 'link',
+                        name: 'mutative-router',
+                        title: '子菜单1的子菜单',
+                        component: resolve => { require(['./views/my_components/count-to/count-to.vue'], resolve); }
+                    }
+                ]
 },
     {
         path: 'draggable-list',
             icon: 'arrow-move',
         name: 'draggable-list',
-        title: '可拖拽列表是',
-        component: resolve => { require(['./views/my_components/draggable-list/draggable-list.vue'], resolve); }
+        title: '子菜单2',
+        component: resolve => { require(['./views/my_components/draggable-list/draggable-list.vue'], resolve); },
+        childrenItemMenu:[]
     }
         ]
 },
