@@ -104,36 +104,36 @@ export const appRouter = [
     component: Main,
     children: [
     {
-        path: 'text-editor',
+        path: 'aa',
         icon: 'compose',
-        name: 'text-editor',
+        name: 'aa',
         title: '富文本编辑器',
-        component: resolve => { require(['./views/my_components/text-editor/text-editor.vue'], resolve); },
+        component: resolve => { require(['./views/my_components/image-editor/image-editor.vue'], resolve); },
         childrenItem:[
             {
-                path: 'image-editor',
+                path: 'aa',
                 icon: 'crop',
-                name: 'image-editor',
+                name: 'aa',
                 title: '子菜单1',
                 component: resolve => { require(['./views/my_components/image-editor/image-editor.vue'], resolve); },
                 childrenItemMenu:[
                     {
-                        path: 'mutative-router',
-                        icon: 'link',
-                        name: 'mutative-router',
+                        path: 'bar',
+                        icon: 'compose',
+                        name: 'bar',
                         title: '子菜单1的子菜单',
-                        component: resolve => { require(['./views/my_components/count-to/count-to.vue'], resolve); }
+                        component: resolve => { require(['./views/my_components/image-editor/bar.vue'], resolve); },
                     }
                 ]
-},
-    {
-        path: 'draggable-list',
-            icon: 'arrow-move',
-        name: 'draggable-list',
-        title: '子菜单2',
-        component: resolve => { require(['./views/my_components/draggable-list/draggable-list.vue'], resolve); },
-        childrenItemMenu:[]
-    }
+            },
+            {
+                path: 'image-editor',
+                    icon: 'arrow-move',
+                name: 'image-editor',
+                title: '子菜单2',
+                component: resolve => { require(['./views/my_components/image-editor/image-editor.vue'], resolve); },
+                childrenItemMenu:[]
+            }
         ]
 },
     {
@@ -152,14 +152,14 @@ export const appRouter = [
         component: resolve => { require(['./views/my_components/image-editor/image-editor.vue'], resolve); },
         childrenItem:[]
     },
-    {
+/*    {
         path: 'draggable-list',
             icon: 'arrow-move',
         name: 'draggable-list',
-        title: '可拖拽列表',
+        title: '可拖拽列表1',
         component: resolve => { require(['./views/my_components/draggable-list/draggable-list.vue'], resolve); },
         childrenItem:[]
-    },
+    },*/
     {
         path: 'file-upload',
             icon: 'android-upload',
@@ -192,18 +192,20 @@ export const appRouter = [
 
 ]
 },
-// {
-//     path: '/charts',
-//     icon: 'ios-analytics',
-//     name: 'charts',
-//     title: '图表',
-//     component: Main,
-//     children: [
-//         { path: 'pie', title: '饼状图', name: 'pie', icon: 'ios-pie', component: resolve => { require('./views/access/access.vue') },
-//         { path: 'histogram', title: '柱状图', name: 'histogram', icon: 'stats-bars', component: resolve => { require('./views/access/access.vue') }
 
-//     ]
-// },
+ {
+     path: '/charts',
+     icon: 'ios-analytics',
+     name: 'charts',
+     title: '图表',
+     component: Main,
+     children: [
+     { path: 'pie', title: '饼状图', name: 'pie', icon: 'arrow-move', component: resolve => { require(['./views/my_components/charts/pie.vue'], resolve); },
+         childrenItem:[] },
+         { path: 'bar', title: '柱状图', name: 'bar', icon: 'stats-bars', component: resolve => { require(['./views/my_components/charts/bar.vue'], resolve) },
+             childrenItem: [] }
+     ]
+ },
 {
     path: '/tables',
         icon: 'ios-grid-view',
@@ -211,15 +213,15 @@ export const appRouter = [
     title: '表格',
     component: Main,
     children: [
-    { path: 'dragableTable', title: '可拖拽排序', name: 'dragable-table', icon: 'arrow-move', component: resolve => { require(['./views/tables/dragable-table.vue'], resolve); },
-    childrenItem:[] },
-    { path: 'editableTable', title: '可编辑表格', name: 'editable-table', icon: 'edit', component: resolve => { require(['./views/tables/editable-table.vue'], resolve); },
+    { path: 'dragable-table', title: '可拖拽排序', name: 'dragable-table', icon: 'arrow-move', component: resolve => { require(['./views/tables/dragable-table.vue'], resolve); },
         childrenItem:[] },
-    { path: 'searchableTable', title: '可搜索表格', name: 'searchable-table', icon: 'search', component: resolve => { require(['./views/tables/searchable-table.vue'], resolve); },
+    { path: 'editable-table', title: '可编辑表格', name: 'editable-table', icon: 'edit', component: resolve => { require(['./views/tables/editable-table.vue'], resolve); },
         childrenItem:[] },
-    { path: 'exportableTable', title: '表格导出数据', name: 'exportable-table', icon: 'code-download', component: resolve => { require(['./views/tables/exportable-table.vue'], resolve); },
+    { path: 'searchable-table', title: '可搜索表格', name: 'searchable-table', icon: 'search', component: resolve => { require(['./views/tables/searchable-table.vue'], resolve); },
         childrenItem:[] },
-    { path: 'table2image', title: '表格转图片', name: 'table-to-image', icon: 'images', component: resolve => { require(['./views/tables/table-to-image.vue'], resolve); },
+    { path: 'exportable-table', title: '表格导出数据', name: 'exportable-table', icon: 'code-download', component: resolve => { require(['./views/tables/exportable-table.vue'], resolve); },
+        childrenItem:[] },
+    { path: 'table-to-image', title: '表格转图片', name: 'table-to-image', icon: 'images', component: resolve => { require(['./views/tables/table-to-image.vue'], resolve); },
         childrenItem:[] }
 ]
 },

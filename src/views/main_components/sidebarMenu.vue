@@ -16,7 +16,7 @@
                 <template v-for="child in item.children">
                      <MenuItem :name="child.path" :key="child.path" v-if="child.childrenItem==''">
                         <Icon :type="child.icon" :size="iconSize" :key="child.path"></Icon>
-                        <span class="layout-text" :key="child.path" >{{itemTitle(child)}}{{child.children}}</span>
+                        <span class="layout-text" :key="child.path" >{{itemTitle(child)}}</span>
                      </MenuItem>
                     <Submenu v-if="child.childrenItem!=''" :name="child.name" :key="child.name">
                         <template slot="title">
@@ -72,7 +72,9 @@ export default {
     methods: {
         changeMenu (active) {
             if (active !== 'accesstest_index') {
-                console.log(active)
+                console.log(this,'this');
+                console.log(this.$router,'this');
+                console.log(active,'active');
                 util.openNewPage(this, active);
                 this.$router.push({
                     name: active
@@ -81,7 +83,6 @@ export default {
         },
         itemTitle (item) {
             if (typeof item.title === 'object') {
-                console.log(item.title,9)
                 return this.$t(item.title.i18n);
             } else {
                 return item.title;

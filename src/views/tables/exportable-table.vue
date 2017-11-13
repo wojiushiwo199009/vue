@@ -22,13 +22,13 @@
                         </div>
                         <div class="exportable-table-download-con2">
                             <div>
-                                <span>选取行范围：&nbsp;</span><InputNumber :min="1" :max="selectMaxRow" v-model="selectMinRow"></InputNumber> 
-                                <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span> 
+                                <span>选取行范围：&nbsp;</span><InputNumber :min="1" :max="selectMaxRow" v-model="selectMinRow"></InputNumber>
+                                <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
                                 <InputNumber :min="selectMinRow" :max="rowNum" v-model="selectMaxRow"></InputNumber>
                             </div>
                             <div class="margin-top-10">
-                                <span>选取列范围：&nbsp;</span><InputNumber :min="1" :max="selectMaxCol" v-model="selectMinCol"></InputNumber> 
-                                <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span> 
+                                <span>选取列范围：&nbsp;</span><InputNumber :min="1" :max="selectMaxCol" v-model="selectMinCol"></InputNumber>
+                                <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
                                 <InputNumber :min="selectMinCol" :max="colNum" v-model="selectMaxCol"></InputNumber>
                             </div>
                             <div class="margin-top-10">
